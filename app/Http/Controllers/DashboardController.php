@@ -41,8 +41,15 @@ class DashboardController extends Controller
 
         $tanggal_awal = date('Y-m-01');
 
+        $data = json_decode(json_encode([
+            ['title' => 'Total Kategori', 'value' => $kategori, 'link' => 'kategori.index', 'icon' => 'ni-bullet-list-67'],
+            ['title' => 'Total Product', 'value' => $produk, 'link' => 'produk.index', 'icon' => 'ni-app'],
+            ['title' => 'Total Supplier', 'value' => $supplier, 'link' => 'supplier.index', 'icon' => 'ni-delivery-fast'],
+            ['title' => 'Total Member', 'value' => $member, 'link' => 'member.index', 'icon' => 'ni-single-02']
+        ]));
+
         if (auth()->user()->level == 1) {
-            return view('admin.dashboard', compact('kategori', 'produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
+            return view('admin.dashboard', compact('data', 'kategori', 'produk', 'supplier', 'member', 'tanggal_awal', 'tanggal_akhir', 'data_tanggal', 'data_pendapatan'));
         } else {
             return view('kasir.dashboard');
         }

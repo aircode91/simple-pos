@@ -10,84 +10,68 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link rel="icon" href="{{ url($setting->path_logo) }}" type="image/png">
-
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="{{ asset('/AdminLTE-2/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('/AdminLTE-2/bower_components/font-awesome/css/font-awesome.min.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('/AdminLTE-2/dist/css/AdminLTE.min.css') }}">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{{ asset('/AdminLTE-2/dist/css/skins/_all-skins.min.css') }}">
-    <!-- DataTables -->
-    <link rel="stylesheet"
-        href="{{ asset('/AdminLTE-2/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-    <!-- Google Font -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="{{ asset('argon/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('argon/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('argon/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{{ asset('argon/assets/css/argon-dashboard.css?v=2.0.5') }}" rel="stylesheet" />
     @stack('css')
 </head>
 
-<body class="hold-transition skin-purple-light sidebar-mini">
-    <div class="wrapper">
+<body class="g-sidenav-show bg-gray-100">
+    <div class="position-absolute w-100 min-height-300 top-0">
+        <span class="mask bg-primary opacity-9"></span>
+    </div>
+    <aside
+        class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
+        id="sidenav-main">
 
-        @includeIf('layouts.header')
+        {{-- @includeIf('layouts.header') --}}
 
         @includeIf('layouts.sidebar')
+    </aside>
+    <div class="main-content position-relative max-height-vh-100 h-100">
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
-                    @yield('title')
-                </h1>
+        @includeIf('layouts.navbar')
+        {{-- <div class="card shadow-lg mx-4 card-profile-bottom mb-4">
+            <nav aria-label="breadcrumb" class="p-3">
                 <ol class="breadcrumb">
                     @section('breadcrumb')
-                    <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="breadcrumb-item">
+                        <a href="{{ url('/') }}">
+                            <i class="fa fa-dashboard"></i>
+                            Home</a>
+                    </li>
                     @show
                 </ol>
-            </section>
+            </nav>
+        </div> --}}
+        <!-- Main content -->
+        <div class="container-fluid py-4">
 
-            <!-- Main content -->
-            <section class="content">
 
-                @yield('content')
+            @yield('content')
 
-            </section>
-            <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
-
-        @includeIf('layouts.footer')
     </div>
-    <!-- ./wrapper -->
+    {{-- @includeIf('layouts.footer') --}}
 
-    <!-- jQuery 3 -->
-    <script src="{{ asset('AdminLTE-2/bower_components/jquery/dist/jquery.min.js') }}"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="{{ asset('AdminLTE-2/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <!-- Moment -->
-    <script src="{{ asset('AdminLTE-2/bower_components/moment/min/moment.min.js') }}"></script>
 
-    <!-- DataTables -->
-    <script src="{{ asset('AdminLTE-2/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('AdminLTE-2/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{ asset('AdminLTE-2/dist/js/adminlte.min.js') }}"></script>
-    <!-- Validator -->
-    <script src="{{ asset('js/validator.min.js') }}"></script>
-
+    <!--   Core JS Files   -->
+    <script src="{{ asset('argon/assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('argon/assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('argon/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('argon/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <!-- Kanban scripts -->
+    <script src="{{ asset('argon/assets/js/plugins/dragula/dragula.min.js') }}"></script>
+    <script src="{{ asset('argon/assets/js/plugins/jkanban/jkanban.js') }}"></script>
+    <script src="{{ asset('argon/assets/js/plugins/chartjs.min.js') }}"></script>
+    <script src="{{ asset('argon/assets/js/argon-dashboard.min.js?v=2.0.5') }}"></script>
     <script>
         function preview(selector, temporaryFile, width = 200)  {
             $(selector).empty();
