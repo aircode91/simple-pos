@@ -39,28 +39,25 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <div class="box">
-            <div class="box-body">
+        <div class="card">
+            <div class="card-body">
 
                 <form class="form-produk">
                     @csrf
-                    <div class="form-group row">
-                        <label for="kode_produk" class="col-lg-2">Kode Produk</label>
-                        <div class="col-lg-5">
-                            <div class="input-group">
-                                <input type="hidden" name="id_penjualan" id="id_penjualan" value="{{ $id_penjualan }}">
-                                <input type="hidden" name="id_produk" id="id_produk">
-                                <input type="text" class="form-control" name="kode_produk" id="kode_produk">
-                                <span class="input-group-btn">
-                                    <button onclick="tampilProduk()" class="btn btn-info btn-flat" type="button"><i
-                                            class="fa fa-arrow-right"></i></button>
-                                </span>
-                            </div>
+                    <input type="hidden" name="id_penjualan" id="id_penjualan" value="{{ $id_penjualan }}">
+                    <input type="hidden" name="id_produk" id="id_produk">
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <input name="kode_produk" id="kode_produk" type="text" class="form-control"
+                                placeholder="Please Choose a Product" aria-label="Recipient's username"
+                                aria-describedby="button-addon2">
+                            <button onclick="tampilProduk()" class="btn bg-gradient-primary mb-0" type="button"
+                                id="button-addon2"><i class="fa fa-arrow-right"></i></button>
                         </div>
                     </div>
                 </form>
 
-                <table class="table table-stiped table-bordered table-penjualan">
+                <table class="table table-striped table-penjualan">
                     <thead>
                         <th width="5%">No</th>
                         <th>Kode</th>
@@ -75,7 +72,7 @@
 
                 <div class="row">
                     <div class="col-lg-8">
-                        <div class="tampil-bayar bg-primary"></div>
+                        <div class="tampil-bayar bg-primary text-white mb-2 px-2"></div>
                         <div class="tampil-terbilang"></div>
                     </div>
                     <div class="col-lg-4">
@@ -88,47 +85,47 @@
                             <input type="hidden" name="id_member" id="id_member"
                                 value="{{ $memberSelected->id_member }}">
 
-                            <div class="form-group row">
-                                <label for="totalrp" class="col-lg-2 control-label">Total</label>
+                            <div class="form-group row ">
+                                <label for="totalrp" class="col-lg-3 control-label mt-2 mt-2">Total</label>
                                 <div class="col-lg-8">
                                     <input type="text" id="totalrp" class="form-control" readonly>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="kode_member" class="col-lg-2 control-label">Member</label>
-                                <div class="col-lg-8">
+                            <div class="form-group row mb-2">
+                                <label for="kode_member" class="col-lg-3 control-label mt-2">Member</label>
+                                <div class="form-group col-lg-8">
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="kode_member"
-                                            value="{{ $memberSelected->kode_member }}">
-                                        <span class="input-group-btn">
-                                            <button onclick="tampilMember()" class="btn btn-info btn-flat"
-                                                type="button"><i class="fa fa-arrow-right"></i></button>
-                                        </span>
+                                            value="{{ $memberSelected->kode_member }}"
+                                            aria-describedby="button-addon-member">
+                                        <button onclick="tampilMember()" class="btn bg-gradient-primary mb-0"
+                                            type="button" id="button-addon-member"><i
+                                                class="fa fa-arrow-right"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="diskon" class="col-lg-2 control-label">Diskon</label>
+                            <div class="form-group row mt-2">
+                                <label for="diskon" class="col-lg-3 control-label mt-2">Diskon</label>
                                 <div class="col-lg-8">
                                     <input type="number" name="diskon" id="diskon" class="form-control"
                                         value="{{ ! empty($memberSelected->id_member) ? $diskon : 0 }}" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="bayar" class="col-lg-2 control-label">Bayar</label>
+                                <label for="bayar" class="col-lg-3 control-label mt-2">Bayar</label>
                                 <div class="col-lg-8">
                                     <input type="text" id="bayarrp" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="diterima" class="col-lg-2 control-label">Diterima</label>
+                                <label for="diterima" class="col-lg-3 control-label mt-2">Diterima</label>
                                 <div class="col-lg-8">
                                     <input type="number" id="diterima" class="form-control" name="diterima"
                                         value="{{ $penjualan->diterima ?? 0 }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="kembali" class="col-lg-2 control-label">Kembali</label>
+                                <label for="kembali" class="col-lg-3 control-label mt-2">Kembali</label>
                                 <div class="col-lg-8">
                                     <input type="text" id="kembali" name="kembali" class="form-control" value="0"
                                         readonly>
@@ -139,7 +136,7 @@
                 </div>
             </div>
 
-            <div class="box-footer">
+            <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm btn-flat pull-right btn-simpan"><i
                         class="fa fa-floppy-o"></i> Simpan Transaksi</button>
             </div>

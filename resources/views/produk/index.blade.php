@@ -12,8 +12,8 @@ Daftar Produk
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <div class="box">
-            <div class="box-header with-border">
+        <div class="card">
+            <div class="card-header with-border">
                 <button onclick="addForm('{{ route('produk.store') }}')" class="btn btn-success btn-sm"><i
                         class="fa fa-plus-circle"></i> Tambah</button>
                 <button onclick="deleteSelected('{{ route('produk.delete_selected') }}')"
@@ -21,13 +21,13 @@ Daftar Produk
                 <button onclick="cetakBarcode('{{ route('produk.cetak_barcode') }}')" class="btn btn-info btn-sm"><i
                         class="fa fa-barcode"></i> Cetak Barcode</button>
             </div>
-            <div class="box-body table-responsive">
+            <div class="card-body table-responsive">
                 <form action="" method="post" class="form-produk">
                     @csrf
                     <table class="table table-stiped table-bordered">
                         <thead>
                             <th width="5%">
-                                <input type="checkbox" name="select_all" id="select_all">
+                                <input type="checkcard" name="select_all" id="select_all">
                             </th>
                             <th width="5%">No</th>
                             <th>Kode</th>
@@ -93,7 +93,7 @@ Daftar Produk
         });
 
         $('[name=select_all]').on('click', function () {
-            $(':checkbox').prop('checked', this.checked);
+            $(':checkcard').prop('checked', this.checked);
         });
     });
 

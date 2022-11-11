@@ -18,12 +18,14 @@
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="{{ asset('argon/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    @stack('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('argon/assets/css/argon-dashboard.css?v=2.0.5') }}" rel="stylesheet" />
-    @stack('css')
 </head>
 
-<body class="g-sidenav-show bg-gray-100">
+<body
+    class="g-sidenav-show bg-gray-100 {{ request()->segment(1) == 'transaksi' && request()->segment(2) == '' ? 'g-sidenav-hidden': '' }}">
     <div class="position-absolute w-100 min-height-300 top-0">
         <span class="mask bg-primary opacity-9"></span>
     </div>
@@ -38,21 +40,19 @@
     <div class="main-content position-relative max-height-vh-100 h-100">
 
         @includeIf('layouts.navbar')
-        {{-- <div class="card shadow-lg mx-4 card-profile-bottom mb-4">
-            <nav aria-label="breadcrumb" class="p-3">
-                <ol class="breadcrumb">
-                    @section('breadcrumb')
-                    <li class="breadcrumb-item">
-                        <a href="{{ url('/') }}">
-                            <i class="fa fa-dashboard"></i>
-                            Home</a>
-                    </li>
-                    @show
-                </ol>
-            </nav>
-        </div> --}}
+        <nav aria-label="breadcrumb" class="container-fluid py-4">
+            <ol class="breadcrumb">
+                @section('breadcrumb')
+                <li class="breadcrumb-item">
+                    <a href="{{ url('/') }}">
+                        <i class="fa fa-dashboard"></i>
+                        Home </a>
+                </li>
+                @show
+            </ol>
+        </nav>
         <!-- Main content -->
-        <div class="container-fluid py-4">
+        <div class="container-fluid">
 
 
             @yield('content')
@@ -68,8 +68,8 @@
     <script src="{{ asset('argon/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('argon/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <!-- Kanban scripts -->
-    <script src="{{ asset('argon/assets/js/plugins/dragula/dragula.min.js') }}"></script>
-    <script src="{{ asset('argon/assets/js/plugins/jkanban/jkanban.js') }}"></script>
+    {{-- <script src="{{ asset('argon/assets/js/plugins/dragula/dragula.min.js') }}"></script>
+    <script src="{{ asset('argon/assets/js/plugins/jkanban/jkanban.js') }}"></script> --}}
     <script src="{{ asset('argon/assets/js/plugins/chartjs.min.js') }}"></script>
     <script src="{{ asset('argon/assets/js/argon-dashboard.min.js?v=2.0.5') }}"></script>
     <script>
@@ -77,6 +77,20 @@
             $(selector).empty();
             $(selector).append(`<img src="${window.URL.createObjectURL(temporaryFile)}" width="${width}">`);
         }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"> </script>
+    <script src="{{ asset('argon/assets/js/plugins/datatables.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            
+            new simpleDatatables.DataTable(".table", {
+                searchable: false,
+                fixedHeight: false,
+                paging:false,
+                fixedColumns:true
+            });
+        });
     </script>
     @stack('scripts')
 </body>

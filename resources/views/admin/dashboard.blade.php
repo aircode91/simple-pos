@@ -16,7 +16,7 @@ Dashboard
         <div class="row">
             @foreach ($data as $item)
             <div class="col-lg-3 col-md-6 col-12">
-                <div class="card  mb-4">
+                <div class="card">
                     <div class="card-body p-3">
                         <div class="row">
                             <div class="col-8">
@@ -48,7 +48,7 @@ Dashboard
 
 
 <div class="row">
-    <div class="col-lg-12 mb-4 mb-lg-0">
+    <div class="col-lg-12 pt-4 mb-lg-0">
         <div class="card z-index-2 h-100">
             <div class="card-header pb-0 pt-3 bg-transparent">
                 <h6 class="text-capitalize">Grafik Pendapatan {{ tanggal_indonesia($tanggal_awal, false) }} s/d {{

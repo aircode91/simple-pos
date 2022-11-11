@@ -17,14 +17,14 @@ Laporan Pendapatan {{ tanggal_indonesia($tanggalAwal, false) }} s/d {{ tanggal_i
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <div class="box">
-            <div class="box-header with-border">
+        <div class="card">
+            <div class="card-header with-border">
                 <button onclick="updatePeriode()" class="btn btn-info btn-sm"><i class="fa fa-plus-circle"></i> Ubah
                     Periode</button>
                 <a href="{{ route('laporan.export_pdf', [$tanggalAwal, $tanggalAkhir]) }}" target="_blank"
                     class="btn btn-success btn-sm"><i class="fa fa-file-excel-o"></i> Export PDF</a>
             </div>
-            <div class="box-body table-responsive">
+            <div class="card-body table-responsive">
                 <table class="table table-stiped table-bordered">
                     <thead>
                         <th width="5%">No</th>

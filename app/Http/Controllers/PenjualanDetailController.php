@@ -83,6 +83,15 @@ class PenjualanDetailController extends Controller
             return response()->json('Data gagal disimpan', 400);
         }
 
+        $detail = PenjualanDetail::findOrFail($request->id_penjualan);
+        // handle if is same the product
+        if ($detail->product_id == $request->id_produk) {
+            $detail->quantity += 1;
+            $detail->save();
+            return response()->json('Quantity berhasil ditambah', 200);
+        }
+        // if(d)
+
         $detail = new PenjualanDetail();
         $detail->sale_id = $request->id_penjualan;
         $detail->product_id = $produk->id;

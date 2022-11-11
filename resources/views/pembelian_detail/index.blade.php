@@ -39,8 +39,8 @@ Transaksi Pembelian
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <div class="box">
-            <div class="box-header with-border">
+        <div class="card">
+            <div class="card-header with-border">
                 <table>
                     <tr>
                         <td>Supplier</td>
@@ -56,7 +56,7 @@ Transaksi Pembelian
                     </tr>
                 </table>
             </div>
-            <div class="box-body">
+            <div class="card-body">
 
                 <form class="form-produk">
                     @csrf
@@ -125,7 +125,7 @@ Transaksi Pembelian
                 </div>
             </div>
 
-            <div class="box-footer">
+            <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm btn-flat pull-right btn-simpan"><i
                         class="fa fa-floppy-o"></i> Simpan Transaksi</button>
             </div>
