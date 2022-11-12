@@ -1,8 +1,4 @@
-<p align="center">
-    <a href="https://github.com/sandinur157" target="_blank"><img src="https://raw.githubusercontent.com/sandinur157/tuturial-membuat-aplikasi-point-of-sales/main/public/img/logo.png" width="120"></a>
-</p>
-
-## Tentang Aplikasi
+## Application Overview
 
 Aplikasi POS atau point of sales adalah aplikasi yang digunakan untuk mengelola transaksi pada sebuah toko atau oleh kasir. Aplikasi ini dibuat menggunakan Laravel v8.* dan minimal PHP v7.4 jadi apabila pada saat proses instalasi atau penggunaan terdapat error atau bug kemungkinan karena versi dari PHP yang tidak support.
 
