@@ -15,6 +15,7 @@ class MemberTableSeeder extends Seeder
     public function run()
     {
         Member::create([
+            'code' => 00001,
             'name' => 'member-1',
             'address' => 'Jl. entah kemana',
             'phone_number' => 8646927349
