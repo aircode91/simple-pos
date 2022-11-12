@@ -28,28 +28,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 Route::get('/', function () {
     return redirect()->route('login');
 });
-Route::get('/greeting/{locale}', function ($locale) {
-    if (!in_array($locale, ['en', 'id'])) abort(404);
 
-
-    App::setLocale($locale);
-    // return redirect()->back();
-    dd(App::currentLocale());
-});
 Route::group(['middleware' => 'auth'], function () {
 
-    App::setLocale('en');
-    Route::get('locale/{locale}', function ($locale) {
-        if (!in_array($locale, ['en', 'id'])) abort(400);
-        App::setLocale($locale);
-        Session::put('locale', $locale);
-        return redirect()->back();
-    });
+    // App::setLocale('en');
+
+    Route::get('lang/{lang}', function ($lang) {
+        if (array_key_exists($lang, Config::get('languages'))) {
+            Session::put('applocale', $lang);
+        }
+        return Redirect::back();
+    })->name('lang.switch');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

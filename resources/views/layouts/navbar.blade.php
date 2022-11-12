@@ -43,11 +43,22 @@
                 </li>
                 <li class="nav-item px-3 d-flex align-items-center dropdown dropdown-backdrop">
                     <a href="#" class="dropdown-toggle text-white neoborder-left" data-bs-toggle="dropdown">
-                        {{ Str::upper(App::currentLocale())}}
+                        <span
+                            class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>
+                        {{ Str::upper(app()->getLocale())}}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <li><a href="locale/en" class="dropdown-item"> EN (English)</a></li>
-                        <li><a href="locale/id" class="dropdown-item"> ID (Indonesia)</a></li>
+                        @foreach (Config::get('languages') as $lang => $language)
+                        {{-- @if ($lang != App::getLocale()) --}}
+                        <li>
+                            <a href="{{ route('lang.switch', $lang) }}" class="dropdown-item"> <a class="dropdown-item"
+                                    href="{{ route('lang.switch', $lang) }}">
+                                    <span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span>
+                                    {{ $language['display'] }}
+                                </a>
+                        </li>
+                        {{-- @endif --}}
+                        @endforeach
                     </ul>
                 </li>
                 <!-- User Account: style can be found in dropdown.less -->
@@ -71,3 +82,7 @@
     </div>
 </nav>
 <!-- End Navbar -->
+
+<form action="{{ route('logout') }}" method="post" id="logout-form" style="display: none;">
+    @csrf
+</form>

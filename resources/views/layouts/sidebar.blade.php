@@ -33,7 +33,7 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-cube"></i>
-                        Kategori
+                        {{ __('lang.category') }}
                     </span>
                 </a>
             </li>
@@ -44,7 +44,7 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-cubes"></i>
-                        Produk
+                        {{ __('lang.product') }}
                     </span>
                 </a>
             </li>
@@ -55,7 +55,7 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-id-card"></i>
-                        Member
+                        {{ __('lang.member') }}
                     </span>
                 </a>
             </li>
@@ -66,12 +66,13 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-truck"></i>
-                        Supplier
+                        {{ __('lang.supllier') }}
                     </span>
                 </a>
             </li>
             <li class="nav-item mt-3">
-                <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">transaksi</h6>
+                <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{ __('lang.transaction') }}
+                </h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('pengeluaran.index') }}">
@@ -80,7 +81,7 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-money"></i>
-                        Pengeluaran
+                        {{ __('lang.expenses') }}
                     </span>
                 </a>
             </li>
@@ -91,7 +92,7 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-download"></i>
-                        Pembelian
+                        {{ __('lang.puchasing') }}
                     </span>
                 </a>
             </li>
@@ -102,7 +103,7 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-upload"></i>
-                        Penjualan
+                        {{ __('lang.sales') }}
                     </span>
                 </a>
             </li>
@@ -113,7 +114,7 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-cart-arrow-down"></i>
-                        Transaksi Aktif
+                        {{ __('lang.active.transaction') }}
                     </span>
                 </a>
             </li>
@@ -124,12 +125,12 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-cart-arrow-down"></i>
-                        Transaksi Baru
+                        {{ __('lang.new.transaction') }}
                     </span>
                 </a>
             </li>
             <li class="nav-item mt-3">
-                <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">laporan</h6>
+                <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{ __('lang.reports') }}</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('laporan.index') }}">
@@ -138,12 +139,12 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-file-pdf-o"></i>
-                        Laporan
+                        {{ __('lang.report') }}
                     </span>
                 </a>
             </li>
             <li class="nav-item mt-3">
-                <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">pengaturan</h6>
+                <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{ __('lang.setting') }}</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.index') }}">
@@ -152,7 +153,7 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-users"></i>
-                        User
+                        {{ __('lang.user') }}
                     </span>
                 </a>
             </li>
@@ -163,7 +164,7 @@
                     </span>
                     <span class="sidenav-normal">
                         <i class="fa fa-cogs"></i>
-                        Pengaturan
+                        {{ __('lang.config') }}
                     </span>
                 </a>
             </li>

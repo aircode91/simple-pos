@@ -25,6 +25,7 @@
 <body class="hold-transition login-page">
 
     @yield('login')
+    {{ app()->getLocale() }}
     <script src="{{ asset('argon/assets/js/argon-dashboard.min.js?v=2.0.5') }}"></script>
     <script src="{{ asset('js/validator.min.js') }}"></script>
     <script>

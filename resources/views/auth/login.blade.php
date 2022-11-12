@@ -9,7 +9,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-7">
                     <div class="card border-0 mb-0">
+
                         <div class="card-header mb-4 text-center">
+                            <h3 class="font-weight-bolder">{{ app()->getLocale() }}</h3>
                             <h3 class="font-weight-bolder">Welcome back POS App</h3>
                             <p class="mb-0">Enter your email and password to sign in</p>
                         </div>
@@ -44,6 +46,11 @@
                                         in</button>
                                 </div>
                             </form>
+                        </div>
+                        <div class="row">
+
+                            <a href="/lang/id" class="btn bg-gradient-primary w-100 my-4 mb-2">ID</a>
+                            <a href="/lang/en" class="btn bg-gradient-primary w-100 my-4 mb-2">EN</a>
                         </div>
                     </div>
                 </div>
